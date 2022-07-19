@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2022_07_19_110253) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +28,7 @@ ActiveRecord::Schema.define(version: 2022_07_19_110253) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+
   create_table "bookmarks", force: :cascade do |t|
     t.bigint "space_id", null: false
     t.bigint "list_id", null: false
@@ -34,6 +37,7 @@ ActiveRecord::Schema.define(version: 2022_07_19_110253) do
     t.index ["list_id"], name: "index_bookmarks_on_list_id"
     t.index ["space_id"], name: "index_bookmarks_on_space_id"
   end
+
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
@@ -68,8 +72,10 @@ ActiveRecord::Schema.define(version: 2022_07_19_110253) do
 
   add_foreign_key "bookings", "spaces"
   add_foreign_key "bookings", "users"
+
   add_foreign_key "bookmarks", "lists"
   add_foreign_key "bookmarks", "spaces"
+
   add_foreign_key "lists", "users"
   add_foreign_key "spaces", "users"
 end
