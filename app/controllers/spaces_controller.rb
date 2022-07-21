@@ -1,10 +1,12 @@
 class SpacesController < ApplicationController
   def index
-    @spaces = Space.all
+    #@spaces = Space.all
+    @spaces = policy_scope(Space)
   end
 
   def show
     @space = Space.find(params[:id])
+    authorize @space
   end
 
   # def new
@@ -23,6 +25,6 @@ class SpacesController < ApplicationController
   private
 
   def space_params
-    params.require(:space).permit(:name, :photo)
+    params.require(:space).permit(:location, :capacity, :fee, :size)
   end
 end
