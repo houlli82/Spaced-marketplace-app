@@ -1,0 +1,5 @@
+<%= simple_form_for (new_space_booking_path) do |f| %>
+  <%= f.datetime_select :from %>
+  <%= f.datetime_select :to %>
+  <%= f.submit "Book this space", class: "btn btn-primary" %>
+<% end %>
