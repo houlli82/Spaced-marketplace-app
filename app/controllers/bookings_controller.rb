@@ -6,13 +6,14 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @space = Space.find(params[:space_id])
   end
 
   def create
+    @booking = Booking.new(booking_params)
     @space = Space.find(params[:space_id])
-    @booking = @list.bookings.new(bookings_params)
     if @booking.save
-      redirect_to @booking.space
+      redirect_to @space
     else
       render :new
     end
