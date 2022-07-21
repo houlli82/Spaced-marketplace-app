@@ -1,0 +1,11 @@
+<p id="Your selected space is:"><%= @space.user_id %></p>
+
+<li>
+  <%= @space.location %>
+  <%= @space.capacity %>
+  <%= @space.fee %>
+  <%= @space.size %>
+</li>
+
+
+<%= link_to 'Back', spaces_path %>
