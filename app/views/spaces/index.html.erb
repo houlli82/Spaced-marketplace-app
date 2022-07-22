@@ -13,7 +13,7 @@
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <%= image_tag "logo-1.png", alt: "Le Wagon", width: 200 %> 
+        <%= image_tag "logo-1.png", alt: "Le Wagon", width: 200 %>
       </a>
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -32,32 +32,35 @@
     </div>
   </nav>
   <%# #nav-bar ends %>
-  
+
 <body>
   <div class="jumbotron text-center">
     <h1>No more worries about SPACES.</h1>
     <p>From rental spaces to rental conference rooms.
     <br>
-    Reservations can be made easily according to your needs.</p> 
+    Reservations can be made easily according to your needs.</p>
   </div>
-    
+
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
         <h3><%= link_to @spaces[1].location, space_path(@spaces[1]) %></h3>
-        
+
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        <%= cl_image_tag("Space-1_oicmej", width: 300, height: 200, crop: :fill) %>
       </div>
       <div class="col-sm-4">
         <h3><%= link_to @spaces[2].location, space_path(@spaces[2]) %></h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        <%= cl_image_tag("Space-2_z2lihp", width: 300, height: 200, crop: :fill) %>
       </div>
       <div class="col-sm-4">
-        <h3><%= link_to @spaces[3].location, space_path(@spaces[3]) %></h3>        
+        <h3><%= link_to @spaces[3].location, space_path(@spaces[3]) %></h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        <%= cl_image_tag("Space-3_kqwfn6", width: 300, height: 200, crop: :fill) %>
       </div>
     </div>
   </div>
