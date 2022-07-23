@@ -1,3 +1,19 @@
+<div class="logged-in">
+  <p>You are logged in as user: <%= @space.user.email %></p>
+</div>
+<h1>Impact HUB</h1>
+<br>
+<br>
+<div class="title">
+  <h2><%= @space.location %></h2>
+</div>
+<br>
+<span class="details">
+  <p>Impact HUB Tokyo is a community of entrepreneurs working together to make Japan and the world a better place to live and work. Impact HUB Tokyo is based in Meguro, Tokyo, Japan and it offers a place to collaborate, have fun, learn and connect. Our community is made of diverse entrepreneurs working together to produce impactful businesses that drives change.</p>
+  <strong>Capacity: <%= @space.capacity %></strong>
+  <strong>Size: <%= @space.size %></strong>
+  <strong>¥ <%= @space.fee %></strong>
+</span>
 
 <p> Your selected space is: <%= @space.title%></p>
 
