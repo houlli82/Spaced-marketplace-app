@@ -22,13 +22,18 @@ puts "5 users created"
 puts "making 10 spaces"
 
 10.times do
-  Space.create!(
+  user_ids = User.all.pluck(:id)
+  s = Space.create!(
     title: Faker::Space.star_cluster,
     location: Faker::Address.city,
     capacity: rand(2..50),
     fee: rand(1..100) * 1000,
     size: Faker::Number.number(digits: 2),
-    user_id: User.all.sample[:id]
+    user_id: user_ids.sample
+  )
+  b = Booking.create!(
+    space_id: s.id,
+    user_id: user_ids.reject { |id| id == s.user_id}.sample
   )
 end
 
