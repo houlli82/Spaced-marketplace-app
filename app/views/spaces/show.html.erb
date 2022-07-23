@@ -1,12 +1,24 @@
+<div class="logged-in">
+  <p>You are logged in as user: <%= @space.user_id %></p>
+</div>
+<h1>Impact HUB</h1>
+<br>
+<br>
+<div class="title">
+  <h2><%= @space.location %></h2>
+</div>
+<br>
+<span class="details">
+  <p>Impact HUB Tokyo is a community of entrepreneurs working together to make Japan and the world a better place to live and work. Impact HUB Tokyo is based in Meguro, Tokyo, Japan and it offers a place to collaborate, have fun, learn and connect. Our community is made of diverse entrepreneurs working together to produce impactful businesses that drives change.</p>
+  <strong>Capacity: <%= @space.capacity %></strong>
+  <strong>Size: <%= @space.size %></strong>
+  <strong>¥ <%= @space.fee %></strong>
+</span>
 
-<p id="Your selected space is:"><%= @space.user_id %></p>
-
-<li>
-  <%= @space.location %>
-  <%= @space.capacity %>
-  <%= @space.fee %>
-  <%= @space.size %>
-</li>
-
+<div class="grid-container">
+  <div class="grid-item"><%= cl_image_tag("Space-6_znwcvy", width: 300, height: 200, crop: :fill) %></div>
+  <div class="grid-item"><%= cl_image_tag("Space-6B_vxi1hn", width: 300, height: 200, crop: :fill) %></div>
+  <div class="grid-item"><%= cl_image_tag("Space-6C_vzi0mg", width: 300, height: 200, crop: :fill) %></div>
+</div>
 
 <%= link_to 'Back', spaces_path %>
