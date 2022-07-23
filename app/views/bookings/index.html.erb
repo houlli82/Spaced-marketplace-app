@@ -1,16 +1,9 @@
 <h1>Your Bookings</h1>
 <%# <%= link_to 'Make a new booking', new_booking_path %>
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-      <% @bookings.each do |booking| %>
-        <h5 class="card-title"><%= booking.space.title %></h5>
-        <p class="card-text">Booked date: <%= booking.from %> - <%= booking.to %></p>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-        <a href="#" class="btn btn-primary">Cancel</a>
-      <% end  %>
-      </div>
-    </div>
-  </div>
-</div>
+<% @bookings.each do |booking| %>
+  <%# <h5><%= link_to booking.title, task_path(task)</h5> %>
+  <h3><%= booking.space.title %></h3>
+  <p><%= booking.from %> - <%= booking.to %></p>
+  <p>Your booking request has been sent. The owner will contact you soon. </p>
+  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+<% end  %>

@@ -16,7 +16,9 @@ class BookingsController < ApplicationController
     @space = Space.find(params[:space_id])
     @booking.space_id = @space.id
     authorize @booking
+  
     if @booking.save
+      
       redirect_to bookings_path
     else
       render :new
