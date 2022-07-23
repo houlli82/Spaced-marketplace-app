@@ -1,5 +1,13 @@
-<%= simple_form_for (new_space_booking_path) do |f| %>
-  <%= f.datetime_select :from %>
-  <%= f.datetime_select :to %>
-  <%= f.submit "Book this space", class: "btn btn-primary" %>
+<%= simple_form_for(booking, url:space_bookings_path) do |f| %>
+  <div class="container mt-3">
+    <p>From:</p>
+    <%= f.datetime_select :from %>
+  </div>
+  <div class="container mt-3">
+    <p>Until</p>
+    <%= f.datetime_select :to %>
+  </div>
+  <div class="container mt-3">
+    <%= f.submit "Book this space", class: "btn btn-primary" %>
+  </div>
 <% end %>
