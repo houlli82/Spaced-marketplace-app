@@ -23,7 +23,6 @@ puts "making 10 spaces"
 
 10.times do
   Space.create!(
-    title: Faker::Space.star_cluster,
     location: Faker::Address.city,
     capacity: rand(2..50),
     fee: rand(1..100) * 1000,

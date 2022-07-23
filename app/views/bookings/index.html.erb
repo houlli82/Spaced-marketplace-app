@@ -1,7 +1,0 @@
-<h1>Your Bookings</h1>
- <%# <%= link_to 'Make a new booking', new_booking_path %>
- <p><%= @bookings.length %></p>
-<% @bookings.each do |booking| %>
-  <%# <h5><%= link_to booking.title, task_path(task)</h5> %>
-  <p><%= booking.space.title %></p>
-<% end  %>
