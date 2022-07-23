@@ -6,15 +6,15 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
-<<<<<<< HEAD
   def new?
     true
   end
 
   def create?
-=======
+    true
+  end
+
   def index?
->>>>>>> master
     true
   end
 end
