@@ -1,12 +1,17 @@
 
-<p id="Your selected space is:"><%= @space.user_id %></p>
+<p> Your selected space is: <%= @space.title%></p>
 
-<li>
-  <%= @space.location %>
-  <%= @space.capacity %>
-  <%= @space.fee %>
-  <%= @space.size %>
-</li>
+      <div class="m-3">
+        <%= cl_image_tag("Space-3_kqwfn6", width: 300, height: 200, crop: :fill) %>
+      </div>
+
+      <div class="text-muted mb-3">
+        <h3>Location: <%= @space.location %></h3>
+        <h3>Capacity: <%= @space.capacity %></h3>
+        <h3>Size: <%= @space.size %> metres squared</h3>
+        <h3>Cost: <%= @space.fee %> JPY</h3>
+      </div>
+
 
 
 <%= link_to 'Back', spaces_path %>
