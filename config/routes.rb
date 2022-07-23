@@ -8,5 +8,4 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: :index
   resources :lists, only: [:index, :show, :update, :destroy]
-
 end
