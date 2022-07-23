@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.space_id = @space.id
     authorize @booking
     if @booking.save
-      redirect_to @booking
+      redirect_to root_path
     else
       render :new
     end
