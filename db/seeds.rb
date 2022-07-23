@@ -10,10 +10,10 @@ require 'faker'
 
 puts "creating 5 users"
 
-User.create!(
-  email: "dev@email.com",
-  password: "123123"
-)
+# User.create!(
+#   email: "dev@email.com",
+#   password: "123123"
+# )
 
 5.times do
   User.create!(
@@ -43,5 +43,4 @@ puts "making 10 spaces"
     to: Time.now.getutc + 1000000
   )
 end
-
 puts "10 spaces created"

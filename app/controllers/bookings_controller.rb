@@ -16,9 +16,8 @@ class BookingsController < ApplicationController
     @space = Space.find(params[:space_id])
     @booking.space_id = @space.id
     authorize @booking
-  
+
     if @booking.save
-      
       redirect_to bookings_path
     else
       render :new
@@ -39,6 +38,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:space_id, :user_id)
+    params.require(:booking).permit(:space_id, :user_id, :to, :from)
   end
 end
