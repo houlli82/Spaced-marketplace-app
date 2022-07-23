@@ -1,37 +1,25 @@
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <!-- Container wrapper -->
-  <div class="container">
-    <!-- Navbar brand -->
-        <%= link_to "#", class: "navbar-brand" do %>
-          <%= image_tag('logo-1.png',width: 190)%>
-        <% end %>
-
-    <!-- Toggle button -->
-    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-      data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- Left links -->
-      <ul class="navbar-nav me-3">
+<%# nav-bar start %>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <%= image_tag "logo-1.png", alt: "Le Wagon", width: 200 %>
+      </a>
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <%= link_to "Home", root_path %>
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Spaces</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign Up",  new_user_registration_url(@login), class: "nav-link" %>
+          <%# <a class="nav-link" href="#">SignUp</a> %>
+        </li>
+        <li class="nav-item">
+          <%# <a class="nav-link" href="#">LogIn</a> %>
+          <%= link_to "Log In",  new_user_session_url(@login), class: "nav-link" %>
         </li>
       </ul>
-      <!-- Left links -->
-
-    
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Sign Up",  new_user_registration_url(@login),class: "glyphicon glyphicon-user" %></li>
-        <li><%= link_to "Log In",  new_user_session_url(@login), class: "glyphicon glyphicon-log-in" %></li>
-      </ul>
     </div>
-    <!-- Collapsible wrapper -->
-  </div>
-  <!-- Container wrapper -->
-</nav>
-<!-- Navbar -->
+  </nav>
+  <%# #nav-bar ends %>
