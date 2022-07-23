@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     resources :bookings, only: [ :new, :create ]
     resources :bookmarks
   end
+<<<<<<< HEAD
+  resources :bookings, only: :index
+=======
 
+>>>>>>> b08f0c5dc60e73b303d7c2fefc964950804007c6
   resources :lists, only: [:index, :show, :update, :destroy]
 
 end
