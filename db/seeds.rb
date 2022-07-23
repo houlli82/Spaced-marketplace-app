@@ -10,6 +10,11 @@ require 'faker'
 
 puts "creating 5 users"
 
+User.create!(
+  email: "dev@email.com",
+  password: "123123"
+)
+
 5.times do
   User.create!(
     email: Faker::Internet.email,
@@ -33,7 +38,9 @@ puts "making 10 spaces"
   )
   b = Booking.create!(
     space_id: s.id,
-    user_id: user_ids.reject { |id| id == s.user_id}.sample
+    user_id: user_ids.reject { |id| id == s.user_id}.sample,
+    from: Time.now.getutc,
+    to: Time.now.getutc + 1000000
   )
 end
 
