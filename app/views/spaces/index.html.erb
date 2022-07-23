@@ -1,38 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Rent a space with SPACED</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-
-<%# nav-bar start %>
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <%= image_tag "logo-1.png", alt: "Le Wagon", width: 200 %>
-      </a>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Spaces</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">SignUp</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">LogIn</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <%# #nav-bar ends %>
-
 <body>
   <div class="jumbotron text-center">
     <h1>No more worries about SPACES.</h1>
@@ -44,16 +19,15 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
-        <h3><%= link_to @spaces[1].location, space_path(@spaces[1]) %></h3>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        <h3><%= link_to @spaces[11].location, space_path(@spaces[1]) %></h3>
+        <p>The rooftop space of SHIBUYA TSUTAYA in the QFRONT building, which is a minute's walk from the JR. </p>
+        <p>Enjoy an array of events at an outstanding location in the heart of SHIBUYA.</p>
         <%= cl_image_tag("Space-1_oicmej", width: 300, height: 200, crop: :fill) %>
       </div>
       <div class="col-sm-4">
-        <h3><%= link_to @spaces[2].location, space_path(@spaces[2]) %></h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        <h3><%= link_to @spaces[8].location, space_path(@spaces[8]) %></h3>
+        <p>This is a popular spot. It’s a 5-minute walk from Ebisu station and close to Yebisu Garden Place.</p>
+        <p>1f faces a busy road, so 1f and Bf are suitable for exhibitions, sales and pop-up shop...</p>
         <%= cl_image_tag("Space-2_z2lihp", width: 300, height: 200, crop: :fill) %>
       </div>
       <div class="col-sm-4">
@@ -61,6 +35,26 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
         <%= cl_image_tag("Space-3_kqwfn6", width: 300, height: 200, crop: :fill) %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <h3><%= link_to @spaces[4].location, space_path(@spaces[1]) %></h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        <%= cl_image_tag("Space-4_lcycwg", width: 300, height: 200, crop: :fill) %>
+      </div>
+      <div class="col-sm-4">
+        <h3><%= link_to @spaces[5].location, space_path(@spaces[2]) %></h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        <%= cl_image_tag("Space-5_abdcn5", width: 300, height: 200, crop: :fill) %>
+      </div>
+      <div class="col-sm-4">
+        <h3><%= link_to @spaces[6].location, space_path(@spaces[3]) %></h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        <%= cl_image_tag("Space-6_znwcvy", width: 300, height: 200, crop: :fill) %>
       </div>
     </div>
   </div>

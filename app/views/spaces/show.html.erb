@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="logged-in">
   <p>You are logged in as user: <%= @space.user_id %></p>
 </div>
@@ -14,6 +15,17 @@
   <strong>Size: <%= @space.size %></strong>
   <strong>¥ <%= @space.fee %></strong>
 </span>
+=======
+
+<p id="Your selected space is:"><%= @space.user_id %></p>
+
+<li>
+  <%= @space.location %>
+  <%= @space.capacity %>
+  <%= @space.fee %>
+  <%= @space.size %>
+</li>
+>>>>>>> master
 
 <div class="grid-container">
   <div class="grid-item"><%= cl_image_tag("Space-6_znwcvy", width: 300, height: 200, crop: :fill) %></div>
