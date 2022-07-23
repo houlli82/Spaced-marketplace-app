@@ -6,6 +6,7 @@ class SpacesController < ApplicationController
 
   def show
     @space = Space.find(params[:id])
+    @booking = Booking.new(user_id: current_user.id, space_id: @space.id)
     authorize @space
   end
 
