@@ -11,14 +11,21 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Spaces</a>
         </li>
-        <li class="nav-item">
-          <%= link_to "Sign Up",  new_user_registration_url(@login), class: "nav-link" %>
-          <%# <a class="nav-link" href="#">SignUp</a> %>
-        </li>
-        <li class="nav-item">
-          <%# <a class="nav-link" href="#">LogIn</a> %>
-          <%= link_to "Log In",  new_user_session_url(@login), class: "nav-link" %>
-        </li>
+        <% if current_user %>
+          <li class="nav-item">
+            <%# <a class="nav-link" href="#">LogIn</a> %>
+            <%= link_to "Log Out",  destroy_user_session_path, method: :delete,class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign Up",  new_user_registration_url, class: "nav-link" %>
+            <%# <a class="nav-link" href="#">SignUp</a> %>
+          </li>
+          <li class="nav-item">
+            <%# <a class="nav-link" href="#">LogIn</a> %>
+            <%= link_to "Log In",  new_user_session_url, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </nav>
