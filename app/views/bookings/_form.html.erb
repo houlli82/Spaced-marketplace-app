@@ -1,5 +1,4 @@
-<%= simple_form_for (new_space_booking_path) do |f| %>
-
+<%= simple_form_for(booking, url:space_bookings_path) do |f| %>
   <div class="container mt-3">
     <p>From:</p>
     <%= f.datetime_select :from %>
