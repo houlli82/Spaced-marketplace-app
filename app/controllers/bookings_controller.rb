@@ -1,12 +1,7 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = policy_scope(Booking)
-
-    # @bookings = Booking.where user = current_user
-    # if current_user.id == params[:id],
-      # redirect_to space_bookings_path
-    # end
+    @bookings = policy_scope(Booking).includes(:space)
   end
 
   def new
