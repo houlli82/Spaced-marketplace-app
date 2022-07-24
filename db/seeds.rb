@@ -26,11 +26,12 @@ puts "5 users created"
 
 puts "making 10 spaces"
 
-10.times do
+20.times do
   user_ids = User.all.pluck(:id)
   s = Space.create!(
     title: Faker::Space.star_cluster,
     location: Faker::Address.city,
+    image: Faker::LoremFlickr.image(size: "50x60", search_terms: ['office']),
     capacity: rand(2..50),
     fee: rand(1..100) * 1000,
     size: Faker::Number.number(digits: 2),
@@ -43,4 +44,4 @@ puts "making 10 spaces"
     to: Time.now.getutc + 1000000
   )
 end
-puts "10 spaces created"
+puts "20 spaces created"
