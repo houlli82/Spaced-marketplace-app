@@ -10,10 +10,10 @@ require 'faker'
 
 puts "Destroying all bookings"
 Booking.destroy_all
-puts "Destroying all users"
-User.destroy_all
 puts "Destroying all spaces"
 Space.destroy_all
+puts "Destroying all users"
+User.destroy_all
 
 puts "creating 5 users"
 
@@ -37,11 +37,11 @@ puts "making 20 spaces"
   s = Space.create!(
     title: Faker::Space.star_cluster,
     location: Faker::Address.city,
-    image: Faker::LoremFlickr.image(size: "50x60", search_terms: ['office']),
+    image: Faker::LoremPixel.image(size: "50x60", is_gray: false, category: 'business'),
     capacity: rand(2..50),
     fee: rand(1..100) * 1000,
     size: Faker::Number.number(digits: 2),
-    user_id: user_ids.sample
+    user_id: user_ids.sample,
   )
   b = Booking.create!(
     space_id: s.id,
