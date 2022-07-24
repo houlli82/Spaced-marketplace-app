@@ -8,6 +8,13 @@
 
 require 'faker'
 
+puts "Destroying all bookings"
+Booking.destroy_all
+puts "Destroying all users"
+User.destroy_all
+puts "Destroying all spaces"
+Space.destroy_all
+
 puts "creating 5 users"
 
 # User.create!(
@@ -23,8 +30,7 @@ puts "creating 5 users"
 end
 
 puts "5 users created"
-
-puts "making 10 spaces"
+puts "making 20 spaces"
 
 20.times do
   user_ids = User.all.pluck(:id)
