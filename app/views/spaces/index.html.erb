@@ -20,8 +20,10 @@
 <div class="row">
     <% @spaces.each do |space| %>
     <div class="col-sm-3">
-      <div class="card" style="width: 250px">
-        <%= space.image %>
+      <div class="card" style="width: 250px, height: 400px">
+        <div class="portrait">
+          <img style='height: 220px; width: 100%; object-fit: cover' src="<%= space.image %>" alt="space.location">
+        </div>
         <div class="card-body">
           <h4 class="card-title"><%= space.location %></h4>
           <p class="card-text">👥 <%= space.capacity %></p>
