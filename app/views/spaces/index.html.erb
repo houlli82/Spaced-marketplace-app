@@ -21,7 +21,7 @@
     <% @spaces.each do |space| %>
     <div class="col-sm-3">
       <div class="card" style="width: 250px">
-        <%= space.image %>
+        <%= image_tag ('Space-5.jpg'), class: "card-img-top" %>
         <div class="card-body">
           <h4 class="card-title"><%= space.location %></h4>
           <p class="card-text">👥 <%= space.capacity %></p>
