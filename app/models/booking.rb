@@ -5,6 +5,6 @@ class Booking < ApplicationRecord
   validates :to, presence: true
 
   def pending?
-    status == 'pending'
+    status == "pending"
   end
 end
