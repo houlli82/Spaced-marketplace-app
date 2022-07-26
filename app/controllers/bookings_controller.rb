@@ -30,9 +30,12 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @space = Space.find(params[:space_id])
-    @booking = @space.bookings.destroy
-    redirect_to @bookings.list
+    # @space = Space.find(params[:space_id])
+    # @booking = @space.bookings.destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
+    redirect_to bookings_path
   end
 
   def update
