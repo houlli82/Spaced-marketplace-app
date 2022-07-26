@@ -42,11 +42,12 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
 
     if @booking.update(booking_params)
+      authorize @booking
       redirect_to bookings_path
     else
       render :new
     end
-    authorize @booking
+
   end
 
   private
