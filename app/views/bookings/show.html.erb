@@ -10,7 +10,7 @@
   <div class="d-flex justify-content-between">
     <div class="d-flex align-items-center">
       <div class="m-3">
-        <%= cl_image_tag("Space-3_kqwfn6", width: 300, height: 200, crop: :fill) %>
+        <%= cl_image_tag(@space.image, width: 300, height: 200, crop: :fill) %>
       </div>
       <div class="text-muted mb-3">
         <h3>Location: <%= @space.location %></h3>

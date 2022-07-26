@@ -4,7 +4,7 @@
   <% @bookings.each do |booking| %>
       <div class="col-md-3">
         <div class="card h-100">
-          <%= cl_image_tag("Space-3_kqwfn6", width: 300, height: 200, crop: :fill) %>
+          <%= cl_image_tag(booking.space.image, width: 300, height: 200, crop: :fill) %>
           <div class="card-body">
             <h5 class="card-title"><%= booking.space.title %></h5>
             <p class="card-text">Booked date: <%= booking.from %> - <%= booking.to %></p>
