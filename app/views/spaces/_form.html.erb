@@ -1,10 +1,8 @@
 <%= simple_form_for(booking, url:space_bookings_path(space_id: space.id)) do |f| %>
   <div class="container mt-3">
-    <p>From:</p>
     <%= f.input :from, as: :date, html5: true %>
   </div>
   <div class="container mt-3">
-    <p>Until</p>
     <%= f.input :to, as: :date, html5: true %>
   </div>
   <div class="container mt-3">
