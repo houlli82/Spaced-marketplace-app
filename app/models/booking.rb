@@ -12,6 +12,7 @@ class Booking < ApplicationRecord
     elsif to < Date.today
       errors.add(:to, "can't be a past date.")
     end
+  end
 
   def pending?
     status == "pending"
