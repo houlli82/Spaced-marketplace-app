@@ -38,9 +38,21 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+
+    if @booking.update(booking_params)
+      authorize @booking
+      redirect_to bookings_path
+    else
+      render :new
+    end
+
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:space_id, :user_id, :to, :from)
+    params.require(:booking).permit(:space_id, :user_id, :to, :from, :status)
   end
 end
