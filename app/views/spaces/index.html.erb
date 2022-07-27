@@ -8,33 +8,45 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+
 <body>
   <div class="jumbotron text-center">
     <h1>No more worries about SPACES.</h1>
     <p>From rental spaces to rental conference rooms.
     <br>
     Reservations can be made easily according to your needs.</p>
+
+    <form class="d-flex align-items-center flex-nowrap">
+      <%= form_tag spaces_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a space"
+          %>
+
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
   </div>
 
-<div class="spaces-container">
-<div class="row">
-    <% @spaces.each do |space| %>
-    <div class="col-sm-3">
-      <div class="card" style="width: 250px, height: 400px">
-        <div class="portrait">
-          <img style='height: 220px; width: 100%; object-fit: cover' src="<%= space.image %>" alt="space.location">
-        </div>
-        <div class="card-body">
-          <h4 class="card-title"><%= space.location %></h4>
-          <p class="card-text">👥 <%= space.capacity %></p>
-          <p class="card-text"><strong>¥ </strong><%= space.fee %></p>
-        </div>
-        <%= link_to "See space", space_path(space), class: "btn btn-primary mb-4" %>
-      </div>
-      </div>
-    <% end %>
-</div>
-</div>
 
+  <div class="spaces-container">
+    <div class="row">
+        <% @spaces.each do |space| %>
+        <div class="col-sm-3">
+          <div class="card" style="width: 250px, height: 400px">
+            <div class="portrait">
+              <img style='height: 220px; width: 100%; object-fit: cover' src="<%= space.image %>" alt="space.location">
+            </div>
+            <div class="card-body">
+              <h4 class="card-title"><%= space.title %></h4>
+              <p class="card-text">👥 <%= space.capacity %></p>
+              <p class="card-text"><strong>¥ </strong><%= space.fee %></p>
+            </div>
+            <%= link_to "See space", space_path(space), class: "btn btn-primary mb-4" %>
+          </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
 </body>
 </html>

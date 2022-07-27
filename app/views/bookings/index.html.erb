@@ -1,23 +1,24 @@
-<h1>Your Bookings</h1>
-<%# <%= link_to 'Make a new booking', new_booking_path %>
-<div class="row row-cols-1 row-cols-md-4">
-  <% @bookings.each do |booking| %>
-      <div class="col-md-3">
-        <div class="card h-100">
-          <%= cl_image_tag(booking.space.image, width: 300, height: 200, crop: :fill) %>
-          <div class="card-body">
-            <h5 class="card-title"><%= booking.space.title %></h5>
-            <p class="card-text">Booked date: <%= booking.from %> - <%= booking.to %></p>
-            <p class="card-text">Impact HUB Tokyo is based in Meguro, Tokyo, Japan and it offers a place to collaborate, have fun, learn and connect.</p>
-            <p class="card-text">Cost: <%= booking.space.fee %> JPY</p>
-            <%= link_to 'Cancel', booking_path(booking), class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
-            <%= link_to 'Home', spaces_path, class: "btn btn-secondary" %>
-            <%= booking.status %>
-            <%# <a href="#" class="btn btn-primary">Cancel</a> %>
+<div class="container">
+  <h1>Your Bookings</h1>
+  <%= link_to '< Back to Home', spaces_path %>
+  <%# <%= link_to 'Make a new booking', new_booking_path %>
+  <div class="row row-cols-1 row-cols-md-4">
+    <% @bookings.each do |booking| %>
+        <div class="col-md-3">
+          <div class="card h-100">
+            <%= cl_image_tag("Space-3_kqwfn6", width: 300, height: 200, crop: :fill) %>
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.space.title %></h5>
+              <p class="card-text">Booked date: <%= booking.from %> - <%= booking.to %></p>
+              <p class="card-text">Impact HUB Tokyo is based in Meguro, Tokyo, Japan and it offers a place to collaborate, have fun, learn and connect.</p>
+              <p class="card-text">Cost: <%= booking.space.fee %> JPY</p>
+              <%= link_to 'Cancel', booking_path(booking), class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%# <a href="#" class="btn btn-primary">Cancel</a> %>
+            </div>
           </div>
         </div>
-      </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 
