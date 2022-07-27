@@ -17,4 +17,16 @@ class BookingPolicy < ApplicationPolicy
   def index?
     true
   end
+
+  def destroy?
+    true
+  end
+
+  def edit?
+    update?
+  end
+
+  def update?
+    record.user == user
+  end
 end

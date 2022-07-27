@@ -4,16 +4,54 @@
   <% @bookings.each do |booking| %>
       <div class="col-md-3">
         <div class="card h-100">
-          <%= cl_image_tag("Space-3_kqwfn6", width: 300, height: 200, crop: :fill) %>
+          <%= cl_image_tag(booking.space.image, width: 300, height: 200, crop: :fill) %>
           <div class="card-body">
             <h5 class="card-title"><%= booking.space.title %></h5>
             <p class="card-text">Booked date: <%= booking.from %> - <%= booking.to %></p>
             <p class="card-text">Impact HUB Tokyo is based in Meguro, Tokyo, Japan and it offers a place to collaborate, have fun, learn and connect.</p>
             <p class="card-text">Cost: <%= booking.space.fee %> JPY</p>
-            <%= link_to 'Cancel', bookings_path, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Cancel', booking_path(booking), class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Home', spaces_path, class: "btn btn-secondary" %>
+            <%= booking.status %>
             <%# <a href="#" class="btn btn-primary">Cancel</a> %>
           </div>
         </div>
       </div>
   <% end %>
 </div>
+
+
+    <h1>Requests to book your spaces:</h1>
+    <% @bookings.each do |booking| %>
+
+      <div class="booking">
+                <div class="booking-left">
+                  <img src="https://kitt.lewagon.com/placeholder/users/dmbf29" class="avatar-bordered">
+                  <div class="booking-info">
+                    <div class="booking-info-title">
+                      Douglas Berkley
+                    </div>
+                    <div class="booking-info-details">
+                      Dec 12, 8:00am - 11:00am
+                    </div>
+                  </div>
+                </div>
+        <% if booking.pending? %>
+              <div class="d-flex">
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                  <%= f.submit 'Accept', class: 'btn btn-info' %>
+                <% end %>
+
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                  <%= f.submit 'Reject', class: 'btn btn-light' %>
+                <% end %>
+              </div>
+
+
+    <% else %>
+      <!-- Display Status-->
+      <p class='booking-tag'><%= booking.status %></p>
+    <% end %>
+<% end %>

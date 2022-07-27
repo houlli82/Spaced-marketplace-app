@@ -29,18 +29,33 @@ puts "creating 5 users"
   )
 end
 
+placeImage = [
+  "https://i.pinimg.com/564x/5f/b0/f4/5fb0f441b2d8220318fb62dbc0ae48a0.jpg",
+  "https://i.pinimg.com/564x/b8/fd/93/b8fd934aa26e5d90a8a07b86a485c073.jpg",
+  "https://i.pinimg.com/originals/a3/63/ce/a363ce996e0cedd9ae100c236bbf92d9.jpg",
+  "http://madonart.com/wp-content/uploads/2015/01/P1000366.jpg",
+  "https://i.pinimg.com/originals/ff/e1/c2/ffe1c2e86b683b0e57b3599c1a103173.gif",
+  "https://i.pinimg.com/564x/b5/5a/b6/b55ab6ea74a8b5989c13f5724a799f5e.jpg",
+  "https://i.pinimg.com/564x/00/bd/45/00bd455c1786c0f487f0bc134ed97f7a.jpg",
+  "https://i.pinimg.com/750x/82/47/6a/82476a0f3a716057ca1701df1e003c6c.jpg",
+  "https://i.pinimg.com/564x/90/63/85/90638575b0a94a5967827c69580cfb26.jpg",
+  "https://i.pinimg.com/564x/a5/84/ac/a584acae05302eadbd575359139e3ac3.jpg",
+  "https://i.pinimg.com/564x/90/36/a6/9036a65606afd19761abb315fe33b6fc.jpg"
+]
+
 puts "5 users created"
 puts "making 20 spaces"
 
 20.times do
   user_ids = User.all.pluck(:id)
+  gen_space_size = rand(3..50)
   s = Space.create!(
     title: Faker::Space.star_cluster,
     location: Faker::Address.city,
-    image: Faker::LoremPixel.image(size: "50x60", is_gray: false, category: 'business'),
-    capacity: rand(2..50),
+    image: placeImage.sample,
+    capacity: gen_space_size,
     fee: rand(1..100) * 1000,
-    size: Faker::Number.number(digits: 2),
+    size: gen_space_size * rand(1.1..3),
     user_id: user_ids.sample,
   )
   b = Booking.create!(
