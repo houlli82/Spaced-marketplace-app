@@ -3,3 +3,16 @@ development:
   api_key: '741511667381137'
   api_secret: 'XeWGux8Zchh8fkuabJq1buGe-cI'
   secure: true
+
+
+development: 
+  cloud_name: "dfuhjsd1x"
+  api_key: "923345849312237"
+  api_secret: "3rvaxEb9y6u5MLJQN-ISv0Si_Yc"
+  secure: true
+
+production:
+  cloud_name: "dfuhjsd1x"
+  api_key: "923345849312237"
+  api_secret: "3rvaxEb9y6u5MLJQN-ISv0Si_Yc"
+  secure:true

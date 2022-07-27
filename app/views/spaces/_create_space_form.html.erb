@@ -1,0 +1,13 @@
+<%= simple_form_for @space do |f| %>
+  <%= f.input :title %>
+  <%= f.input :location %>
+  <%= f.input :capacity %>
+  <%= f.input :fee %>
+  <%= f.input :size %>
+  <%= f.file_field :image %>
+  <%= f.submit class: "btn btn-primary mt-4" %>
+
+  <%#= link_to "Delete", pet_path(Pet.last), data: { turbo_method: :delete, turbo_confirm: "Are your sure?" } %>
+  <%#= button_to "Delete", pet_path(Pet.last), method: :delete, form: { data: { turbo_confirm: "Are your sure?" } } %>
+<% end %>
+
