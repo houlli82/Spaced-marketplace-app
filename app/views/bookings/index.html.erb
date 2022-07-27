@@ -20,3 +20,39 @@
     <% end %>
   </div>
 </div>
+
+
+    <h1>Requests to book your spaces:</h1>
+    <% @bookings.each do |booking| %>
+
+      <div class="booking">
+                <div class="booking-left">
+                  <img src="https://kitt.lewagon.com/placeholder/users/dmbf29" class="avatar-bordered">
+                  <div class="booking-info">
+                    <div class="booking-info-title">
+                      Douglas Berkley
+                    </div>
+                    <div class="booking-info-details">
+                      Dec 12, 8:00am - 11:00am
+                    </div>
+                  </div>
+                </div>
+        <% if booking.pending? %>
+              <div class="d-flex">
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                  <%= f.submit 'Accept', class: 'btn btn-info' %>
+                <% end %>
+
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                  <%= f.submit 'Reject', class: 'btn btn-light' %>
+                <% end %>
+              </div>
+
+
+    <% else %>
+      <!-- Display Status-->
+      <p class='booking-tag'><%= booking.status %></p>
+    <% end %>
+<% end %>
