@@ -20,9 +20,9 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path
     else
+      flash.now[:alert] = "Please select a valid date"
       render :new
     end
-
   end
 
   def show
