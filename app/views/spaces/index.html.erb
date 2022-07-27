@@ -25,9 +25,9 @@
           <img style='height: 220px; width: 100%; object-fit: cover' src="<%= space.image %>" alt="space.location">
         </div>
         <div class="card-body">
-          <h4 class="card-title"><%= space.location %></h4>
-          <p class="card-text">👥 <%= space.capacity %></p>
-          <p class="card-text"><strong>¥ </strong><%= space.fee %></p>
+          <h4 class="card-title"><%= fa_icon "map-marker"%> <%= space.location %></h4>
+          <p class="card-text"><%= fa_icon "users"%> <%= space.capacity %></p>
+          <p class="card-text"><%= fa_icon "jpy"%> <%= space.fee %></p>
         </div>
         <%= link_to "See space", space_path(space), class: "btn btn-primary mb-4" %>
       </div>
