@@ -1,4 +1,24 @@
-<h1>Your Bookings</h1>
+<h1>Bookings</h1>
+
+<ul class="tabs">
+  <li data-tab-target="#my-bookings" class="active tab">My Bookings</li>
+  <li data-tab-target="#my-spaces" class="tab">My Spaces</li>
+</ul>
+
+<div class="tabcontent">
+  <div id="my-bookings" data-tab-content class="active">
+    <h1>My Bookings</h1>
+    <p>Here are your bookings</p>
+  </div>
+</div>
+<div class="tabcontent">
+  <div id="my-spaces" data-tab-content>
+    <h1>My Spaces</h1>
+    <p>Here are your spaces</p>
+  </div>
+</div>
+
+
 <%# <%= link_to 'Make a new booking', new_booking_path %>
 <div class="row row-cols-1 row-cols-md-4">
   <% @bookings.each do |booking| %>
@@ -22,36 +42,39 @@
 
 
     <h1>Requests to book your spaces:</h1>
+    <div class="row row-cols-1 row-cols-md-4">
     <% @bookings.each do |booking| %>
 
-      <div class="booking">
-                <div class="booking-left">
-                  <img src="https://kitt.lewagon.com/placeholder/users/dmbf29" class="avatar-bordered">
-                  <div class="booking-info">
-                    <div class="booking-info-title">
-                      Douglas Berkley
+      <div class="col-md-3">
+        <div class="card h-100">
+          <div class="booking">
+                    <div class="booking-left">
+                      <%# <img src="https://kitt.lewagon.com/placeholder/users/dmbf29" class="avatar-bordered"> %>
+                      <div class="booking-info">
+                        <p class="card-text">User: <%= booking.user.email %></p>
+                        <p class="card-text">Booked date: </p>
+                        <p><%= booking.from %> - </p>
+                        <p><%= booking.to %> </p>
+                      </div>
                     </div>
-                    <div class="booking-info-details">
-                      Dec 12, 8:00am - 11:00am
-                    </div>
+            <% if booking.pending? %>
+                  <div class="d-flex">
+                    <%= simple_form_for booking do |f| %>
+                      <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                      <%= f.submit 'Accept', class: 'btn btn-info' %>
+                    <% end %>
+
+                    <%= simple_form_for booking do |f| %>
+                      <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                      <%= f.submit 'Reject', class: 'btn btn-light' %>
+                    <% end %>
                   </div>
-                </div>
-        <% if booking.pending? %>
-              <div class="d-flex">
-                <%= simple_form_for booking do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-                  <%= f.submit 'Accept', class: 'btn btn-info' %>
-                <% end %>
-
-                <%= simple_form_for booking do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-                  <%= f.submit 'Reject', class: 'btn btn-light' %>
-                <% end %>
-              </div>
-
-
-    <% else %>
-      <!-- Display Status-->
-      <p class='booking-tag'><%= booking.status %></p>
-    <% end %>
+            <% else %>
+              <!-- Display Status-->
+              <p class='booking-tag'><%= booking.status %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+  </div>
 <% end %>
