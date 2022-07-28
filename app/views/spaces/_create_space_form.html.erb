@@ -4,7 +4,7 @@
   <%= f.input :capacity %>
   <%= f.input :fee %>
   <%= f.input :size %>
-  <%= f.file_field :image %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true }%>
   <%= f.submit class: "btn btn-primary mt-4" %>
 
   <%#= link_to "Delete", pet_path(Pet.last), data: { turbo_method: :delete, turbo_confirm: "Are your sure?" } %>
