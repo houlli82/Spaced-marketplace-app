@@ -7,9 +7,12 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import {initializeTabs} from "./tabs"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-require("app/javascript/packs/tabs.js")
+document.addEventListener('turbolinks:load', () => {
+  initializeTabs()
+});
