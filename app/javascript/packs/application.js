@@ -13,6 +13,12 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+<<<<<<< HEAD
 document.addEventListener('turbolinks:load', () => {
   initializeTabs()
 });
+=======
+//= require jquery
+//= require bootstrap
+//= require_tree .
+>>>>>>> master

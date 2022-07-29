@@ -2,6 +2,12 @@ class SpacesController < ApplicationController
   def index
     #@spaces = Space.all
     @spaces = policy_scope(Space)
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR location ILIKE :query"
+      @spaces = Space.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @spaces = Space.all
+    end
   end
 
   def show
@@ -10,22 +16,25 @@ class SpacesController < ApplicationController
     authorize @space
   end
 
-  # def new
-  #   @space = Space.new
-  # end
+  def new
+    @space = Space.new
+    authorize @space
+  end
 
-  # def create
-  #   @space = Space.new(space_params)
-  #   if @space.save
-  #     redirect_to root_path
-  #   else
-  #     render :new
-  #   end
-  # end
+  def create
+    @space = Space.new(space_params)
+    @space.user_id = current_user.id
+    authorize @space
+    if @space.save
+      redirect_to root_path, notice: 'New Space was successfully created.'
+    else
+      render :new
+    end
+  end
 
   private
 
   def space_params
-    params.require(:space).permit(:location, :capacity, :fee, :size)
+    params.require(:space).permit(:location, :capacity, :fee, :size, photos: [])
   end
 end

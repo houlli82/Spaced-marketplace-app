@@ -28,13 +28,17 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'bootstrap-sass', '3.3.6'
+gem 'jquery-rails'
+
 # Gemfile for using devise
 gem 'devise'
 gem 'pundit'
 
-# Gemfile for Cloudinary
-gem 'dotenv-rails', groups: [:development, :test]
-gem 'cloudinary', '~> 1.16.0'
+
+
+# Gemfile for searchbar
+gem 'pg_search', '~> 2.3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -68,5 +72,9 @@ gem 'faker'
 
 
 gem "autoprefixer-rails", "10.2.5"
-gem "font-awesome-sass", "~> 5.6.1"
+gem "font-awesome-rails"
+# gem "font-awesome-sass", "~> 5.6.1"
 gem "simple_form", github: 'heartcombo/simple_form'
+# Gemfile for Cloudinary
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.16.0'

@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+require 'open-uri'
 
 puts "Destroying all bookings"
 Booking.destroy_all
@@ -46,9 +47,12 @@ placeImage = [
 puts "5 users created"
 puts "making 20 spaces"
 
+
+
 20.times do
   user_ids = User.all.pluck(:id)
   gen_space_size = rand(3..50)
+  file = URI.open(placeImage.sample)
   s = Space.create!(
     title: Faker::Space.star_cluster,
     location: Faker::Address.city,
@@ -58,6 +62,7 @@ puts "making 20 spaces"
     size: gen_space_size * rand(1.1..3),
     user_id: user_ids.sample,
   )
+  s.photos.attach(io: file, filename: 'space.jpg', content_type: 'image/*')
   b = Booking.create!(
     space_id: s.id,
     user_id: user_ids.reject { |id| id == s.user_id}.sample,
