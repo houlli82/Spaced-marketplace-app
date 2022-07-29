@@ -35,8 +35,6 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'pundit'
 
-
-
 # Gemfile for searchbar
 gem 'pg_search', '~> 2.3.0'
 
@@ -69,7 +67,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'faker'
-
+gem "geocoder"
 
 gem "autoprefixer-rails", "10.2.5"
 gem "font-awesome-rails"
