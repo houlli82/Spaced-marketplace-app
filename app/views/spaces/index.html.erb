@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <title>Rent a space with SPACED</title>
   <meta charset="utf-8">
@@ -10,23 +8,31 @@
 </head>
 
 <body>
-  <div class="jumbotron text-center">
-    <h1>No more worries about SPACES.</h1>
-    <p>From rental spaces to rental conference rooms.
-    <br>
-    Reservations can be made easily according to your needs.</p>
+  <section id="home" class="welcome-hero">
+			<div class="container">
+				<div class="welcome-hero-txt">
+					<h2>best place to find the rental spaces <br> that you need </h2>
+					<p>
+						From rental studio rooms to rental buildings and many more in just One click 
+					</p>
+				</div>
+				<div class="welcome-hero-serch-box">
+					<div class="welcome-hero-form">
+						<div class="single-welcome-hero-form">
+							<form class="d-flex align-items-center flex-nowrap">
+                  <%= form_tag spaces_path, method: :get do %>
+                      <%= text_field_tag :query,
+                        params[:query],
+                        class: "form-control",
+                        placeholder: "Find a space"
+                      %>
+                      <%= submit_tag "Search", class: "btn btn-primary" %>
+                  <% end %>
+			</div>
 
-    <form class="d-flex align-items-center flex-nowrap">
-      <%= form_tag spaces_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Find a space"
-          %>
+		</section><!--/.welcome-hero-->
+		<!--welcome-hero end -->
 
-          <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
-  </div>
 
 <div class="spaces-container">
   <div class="row">

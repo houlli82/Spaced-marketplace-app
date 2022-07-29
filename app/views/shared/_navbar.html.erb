@@ -22,12 +22,14 @@
       <ul id="navbar" class="nav navbar-nav navbar-right navbar-collapse collapse">
         <li><%= link_to "Home", root_path %></li>
         <% if current_user %>
+          <li><%= link_to "Explore"%></li>
           <li><%= link_to "Post New Space",new_space_url %></li>
           <li><%= link_to "My Spaces" %></li>
           <li><%= link_to "My Bookings", bookings_url %></li>
           <li><%= link_to "My Account", edit_user_registration_path %></li>
-					<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+					<li><%= link_to "Sign out", destroy_user_session_url, :method => :delete %></li>
         <% else %>
+          
           <li><%= link_to "Log in", new_user_session_url %></li>
           <li><%= link_to "Sign Up", new_user_registration_url %></li>
         <% end %>
