@@ -8,8 +8,9 @@
                       </div>
                     <p class="card-text">User: <%= booking.user.email %></p>
                     <p class="card-text">Booked date: </p>
-                    <p><%= booking.from %> - </p>
-                    <p><%= booking.to %> </p>
+                    <p><%= booking.from.to_s[0...-13] %>  </p>
+                    <p>        to </p>
+                    <p><%= booking.to.to_s[0...-13] %> </p>
                   </div>
 
               <% if booking.pending? %>
