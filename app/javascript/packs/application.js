@@ -7,11 +7,20 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+<<<<<<< HEAD
 import  'bootstrap'
+=======
+import "controllers"
+import {initializeTabs} from "./tabs"
+document.addEventListener('turbolinks:load', () => {
+  initializeTabs()
+});
+>>>>>>> master
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
 
 //= require jquery
 //= require bootstrap

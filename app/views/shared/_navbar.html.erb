@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
 
-    
+
     <div class="navbar-header">
 
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -10,24 +10,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-    
+
         <%= image_tag "logo-1.png", alt: "SPACED", width: 200 %>
 
-    
+
     </div>
-    
+
 
     <nav>
-      
+
       <ul id="navbar" class="nav navbar-nav navbar-right navbar-collapse collapse">
         <li><%= link_to "Home", root_path %></li>
         <% if current_user %>
           <li><%= link_to "Explore","#{spaces_path}#explore" %></li>
           <li><%= link_to "Post New Space",new_space_url %></li>
+<<<<<<< HEAD
           <li><%= link_to "My Spaces" %></li>
           <li><%= link_to "My Bookings", bookings_url %></li>
           <li><%= link_to "My Account", edit_user_registration_path %></li>
 					<li><%= link_to "Sign out", destroy_user_session_url, :method => :delete %></li>
+=======
+          <li><%= link_to "Dashboard", bookings_url %></li>
+          <li><%= link_to "Account", edit_user_registration_path %></li>
+					<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+>>>>>>> master
         <% else %>
           
           <li><%= link_to "Log in", new_user_session_url %></li>

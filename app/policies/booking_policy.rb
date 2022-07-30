@@ -27,6 +27,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.space.user == user || record.user == user
   end
 end

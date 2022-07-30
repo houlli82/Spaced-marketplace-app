@@ -1,8 +1,10 @@
 class Space < ApplicationRecord
   belongs_to :user
+  has_many :bookings
 
   # has_one_attached :image
   has_many_attached :photos
+
 
   include PgSearch::Model
     multisearchable against: [:title, :location]
@@ -12,4 +14,7 @@ class Space < ApplicationRecord
         using: {
           tsearch: { prefix: true }
         }
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

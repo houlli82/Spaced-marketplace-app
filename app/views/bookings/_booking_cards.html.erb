@@ -1,0 +1,15 @@
+<div class="card" style="width: 250px, height: 400px">
+            <div class="container mt-4">
+              <%= cl_image_tag(booking.space.photos.first.key, width: 350, height: 200, crop: :fill, :align=> "middle") %>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.space.title %></h5>
+              <p class="card-text">Booked date: <%= booking.from.to_s[0...-13]%>  until  <%= booking.to.to_s[0...-13] %></p>
+              <p class="card-text">Impact HUB Tokyo is based in Meguro, Tokyo, Japan and it offers a place to collaborate, have fun, learn and connect.</p>
+              <p class="card-text">Cost: <%= booking.space.fee %> JPY</p>
+              <%= link_to 'Cancel', booking_path(booking), class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Home', spaces_path, class: "btn btn-secondary" %>
+              <%= booking.status %>
+              <%# <a href="#" class="btn btn-primary">Cancel</a> %>
+            </div>
+          </div>
