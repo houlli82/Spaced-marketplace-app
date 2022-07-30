@@ -13,6 +13,7 @@
         <%= cl_image_tag(@booking.space.image, width: 300, height: 200, crop: :fill) %>
       </div>
       <div class="text-muted mb-3">
+        <%= raise %>
         <h3>Location: <%= @space.location %></h3>
         <h3>Capacity: <%= @space.capacity %></h3>
         <h3>Size: <%= @space.size %> metres squared</h3>

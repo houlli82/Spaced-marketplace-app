@@ -2,6 +2,8 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(Booking).includes(:space)
+    @spaces = Space.where(user:current_user)
+    # @request = Booking.where(space_user:current_user)
   end
 
   def new
