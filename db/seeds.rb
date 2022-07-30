@@ -54,6 +54,15 @@ spaceDescription = [
   "This elegant lounge is located inside a residential apartment home community in Mission Bay and China Basin. Situated off of Mission Creek park, this is an urban oasis perfect for a 15-20 person off-site event.  At approximately 1000 square feet the lounge features an indoor fireplace, large farm style table with 10 chairs, a seating area with two sofas and two occasional chairs, as well as four club chairs cozily located next to the fireplace "
 ]
 
+spaceLocation = [
+  "2 Chome-11-3 Meguro, Meguro City, Tokyo 153-0063",
+  "2 Chome-30-6 Kamimeguro, Meguro City, Tokyo 153-0051",
+  "1 Chome-6-5 Jinnan, Shibuya City, Tokyo 150-0041",
+  "2 Chome-8-5 Higashigotanda, Shinagawa City, Tokyo 141-0022",
+  "3 Chome-18-3 Aobadai, Meguro City, Tokyo 153-0042"
+]
+
+
 # movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
@@ -69,7 +78,7 @@ puts "making 20 spaces"
   file = URI.open(placeImage.sample)
   s = Space.create!(
     title: Faker::Space.star_cluster,
-    location: Faker::Address.city,
+    location: spaceLocation.sample,
     image: placeImage.sample,
     capacity: gen_space_size,
     fee: rand(1..100) * 1000,
