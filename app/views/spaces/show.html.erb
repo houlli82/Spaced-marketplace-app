@@ -20,18 +20,11 @@
     <%= link_to 'Back', spaces_path %>
       <div class="title">
         <h1><%= @space.title %></h1>
-        <%= cl_image_tag(@space.photos.first.key, width: 1110, height: 400, crop: :fill) %>
+        <%= cl_image_tag(@space.photos.first.key, width: 1110, height: 400, crop: :fill ) %>
       </div>
       <br>
-      <%# <span class="details">
+      <span class="details">
         <p><%= @space.description %>
-        <%# <p><strong>Capacity: <%= @space.capacity</strong></p> %>
-        <%# <p><strong>Size: <%= @space.size %>
-        <%# <p><strong>¥ <%= @space.fee %>
-      <%# </span> %>
-      <%# <p> Your selected space is: <%= @space.title</p> %>
-        <%# <div class="m-3">
-        </div> %>
 
         <div class="text-muted mb-3">
           <p><%= fa_icon "map-marker"%> <%= @space.location %></p>
