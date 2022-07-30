@@ -11,33 +11,41 @@
   </head>
 
 <body>
-    <div class="jumbotron text-center">
-      <h1>No more worries about SPACES</h1>
-      <p>From rental spaces to rental conference rooms
-      <br>
-      Reservations can be made easily according to your needs</p>
+      <section id="home" class="welcome-hero">
+			<div class="container">
+				<div class="welcome-hero-txt">
+					<h2>best place to find the rental spaces <br> that you need </h2>
+					<p>
+						From rental studio rooms to rental buildings and many more in just One click 
+					</p>
+				</div>
+							<form class="d-flex flex-nowrap">
+                  <%= form_tag spaces_path, method: :get do %>
+                      <%= text_field_tag :query,
+                        params[:query],
+                        class: "form-control",
+                        placeholder: "Find a space"
+                      %>
+                      <%= submit_tag "Search", class: "btn btn-primary" %>
+                  <% end %>
+			</div>
 
-      <form class="d-flex align-items-center flex-nowrap">
-        <%= form_tag spaces_path, method: :get do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Find a space"
-            %>
-
-            <%= submit_tag "Search", class: "btn btn-primary" %>
-        <% end %>
+		</section><!--/.welcome-hero-->
+		<!--welcome-hero end -->
+  <div class="map-container pt-5">
+    <div class="row justify-content-center">
+      <div style="width: 80%; height: 600px;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
-
-  <div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
+  </div>
+  
 <div class="spaces-container">
   <div class="row">
     <% @spaces.each do |space| %>
-    <div class="col-sm-3">
+    <div class="col-sm-3" id= "explore">
       <div class="card" style="width: 250px, height: 400px">
         <div class="portrait">
           <img style='height: 220px; width: 100%; object-fit: cover' src="<%= space.photos.attached? ? cl_image_path(space.photos.first.key) : asset_path("Space-5.jpg") %>" alt="space.location">
