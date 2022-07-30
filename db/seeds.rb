@@ -55,11 +55,11 @@ spaceDescription = [
 ]
 
 spaceLocation = [
-  "2 Chome-11-3 Meguro, Meguro City, Tokyo 153-0063",
-  "2 Chome-30-6 Kamimeguro, Meguro City, Tokyo 153-0051",
-  "1 Chome-6-5 Jinnan, Shibuya City, Tokyo 150-0041",
-  "2 Chome-8-5 Higashigotanda, Shinagawa City, Tokyo 141-0022",
-  "3 Chome-18-3 Aobadai, Meguro City, Tokyo 153-0042"
+  "Meguro, Tokyo",
+  "Shinagawa, Tokyo",
+  "Setagaya, Tokyo",
+  "Minato, Tokyo",
+  "Shinjuku, Tokyo"
 ]
 
 
@@ -79,6 +79,7 @@ puts "making 20 spaces"
   s = Space.create!(
     title: Faker::Space.star_cluster,
     location: spaceLocation.sample,
+    address: spaceLocation.sample,
     image: placeImage.sample,
     capacity: gen_space_size,
     fee: rand(1..100) * 1000,
@@ -90,8 +91,8 @@ puts "making 20 spaces"
   b = Booking.create!(
     space_id: s.id,
     user_id: user_ids.reject { |id| id == s.user_id}.sample,
-    from: Time.now.getutc,
-    to: Time.now.getutc + 1000000
+    from: Time.now.getutc  + 1000000,
+    to: Time.now.getutc + 2000000
   )
 end
 puts "20 spaces created"

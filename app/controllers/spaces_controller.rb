@@ -8,6 +8,12 @@ class SpacesController < ApplicationController
     else
       @spaces = Space.all
     end
+    @markers = @spaces.geocoded.map do |space|
+      {
+        lat: space.latitude,
+        lng: space.longitude
+      }
+    end
   end
 
   def show
@@ -35,6 +41,6 @@ class SpacesController < ApplicationController
   private
 
   def space_params
-    params.require(:space).permit(:location, :capacity, :fee, :size, :description, photos: [])
+    params.require(:space).permit(:location, :capacity, :fee, :size, :description, :address, photos: [])
   end
 end

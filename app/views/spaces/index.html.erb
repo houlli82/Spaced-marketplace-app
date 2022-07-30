@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
 
-  <body>
+<body>
     <div class="jumbotron text-center">
       <h1>No more worries about SPACES</h1>
       <p>From rental spaces to rental conference rooms
@@ -37,8 +37,8 @@
                 <img style='height: 220px; width: 100%; object-fit: cover' src="<%= space.photos.attached? ? cl_image_path(space.photos.first.key) : asset_path("Space-5.jpg") %>" alt="space.location">
               </div>
               <div class="card-body">
-                <h1><%= space.title %></h1>
-                <h4 class="card-title"><%= fa_icon "map-marker"%> <%= space.location %></h4>
+                <h2><%= space.title %></h2>
+                <p class="card-title"><%= fa_icon "map-marker"%> <%= space.location %></p>
                 <p class="card-text"><%= fa_icon "users"%> <%= space.capacity %></p>
                 <p class="card-text"><%= fa_icon "jpy"%> <%= space.fee %></p>
               </div>
@@ -48,5 +48,11 @@
         <% end %>
       </div>
     </div>
-  </body>
+
+    <div style="width: 100%; height: 600px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+</body>
 </html>
