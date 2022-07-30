@@ -15,19 +15,19 @@
       <p>From rental spaces to rental conference rooms
       <br>
       Reservations can be made easily according to your needs</p>
+      <div class="container">
+        <form class="d-flex align-items-center flex-nowrap">
+          <%= form_tag spaces_path, method: :get do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Find a space"
+              %>
 
-      <form class="d-flex align-items-center flex-nowrap">
-        <%= form_tag spaces_path, method: :get do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Find a space"
-            %>
-
-            <%= submit_tag "Search", class: "btn btn-primary" %>
-        <% end %>
+              <%= submit_tag "Search", class: "btn btn-primary" %>
+          <% end %>
+        </div>
     </div>
-
   <div style="width: 100%; height: 600px;"
   data-controller="mapbox"
   data-mapbox-markers-value="<%= @markers.to_json %>"

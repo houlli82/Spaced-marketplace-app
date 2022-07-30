@@ -1,5 +1,8 @@
 <h1>New Space</h1>
+<div class="container mt-4">
+  <%= render 'create_space_form', space: @space %>
+</div>
 
-<%= render 'create_space_form', space: @space %>
-
-<%= link_to 'Back', spaces_path %>
+<div class="container mt-4 ">
+  <%= link_to 'Back', spaces_path %>
+</div>
