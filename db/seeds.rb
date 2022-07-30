@@ -44,6 +44,29 @@ placeImage = [
   "https://i.pinimg.com/564x/90/36/a6/9036a65606afd19761abb315fe33b6fc.jpg"
 ]
 
+spaceDescription = [
+  "Hold your next meeting, event, or film shoot at our space! Our unique event space is equipped with a kitchenette, catering table, projection, audio, and wireless Google Fiber internet. A perfect space for events or large meetings.
+  Our space pet-friendly. Includes coffee, filtered water, and kitchenette access. Free on-site parking!
+  Audio, video, and lighting system assistance is available.",
+  "This space is excellent for anyone that needs a legit and beautiful looking recording studio for film or photo work. It is a fully functional and operating studio hidden away in the hip and central North Park area of San Diego. The studio is in walking distance from many of North Park's wonderful restaurants, bars, breweries, and shops. One or two cars can park in the driveway and the rest should easily find parking on the street nearby.",
+  "Do you need professional space to host your online webinar or work meeting? Our room offers ample and professional-looking space as well as natural lighting. We supple a mounted TV with HDMI cord. Feel free to bring any additional lighting or mic equipment. Our space is quiet and part of a professional office suite. Conveniently located to I-85, I-285, and Midtown, this spacious event room is connected to a holistic healing practice including mental health therapists. The room is ideal for a professional workshop or lecture, business meeting, networking event, group therapy, or yoga/meditation class. ",
+  "Large conference room & meeting space for 8-10 guests. Includes whiteboard wall, TV with HDMI/ Apple TV capability and speakerphone. Next to common space (shared space, not private), pantry and has access to roof deck. Great for board meetings, lunches, presentations, brainstorming sessions, and more! Lots of natural light through the skylight, as well.",
+  "This elegant lounge is located inside a residential apartment home community in Mission Bay and China Basin. Situated off of Mission Creek park, this is an urban oasis perfect for a 15-20 person off-site event.  At approximately 1000 square feet the lounge features an indoor fireplace, large farm style table with 10 chairs, a seating area with two sofas and two occasional chairs, as well as four club chairs cozily located next to the fireplace "
+]
+
+spaceLocation = [
+  "Meguro, Tokyo",
+  "Shinagawa, Tokyo",
+  "Setagaya, Tokyo",
+  "Minato, Tokyo",
+  "Shinjuku, Tokyo"
+]
+
+
+# movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+
 puts "5 users created"
 puts "making 20 spaces"
 
@@ -55,19 +78,21 @@ puts "making 20 spaces"
   file = URI.open(placeImage.sample)
   s = Space.create!(
     title: Faker::Space.star_cluster,
-    location: Faker::Address.city,
+    location: spaceLocation.sample,
+    address: spaceLocation.sample,
     image: placeImage.sample,
     capacity: gen_space_size,
     fee: rand(1..100) * 1000,
     size: gen_space_size * rand(1.1..3),
     user_id: user_ids.sample,
+    description: spaceDescription.sample,
   )
   s.photos.attach(io: file, filename: 'space.jpg', content_type: 'image/*')
   b = Booking.create!(
     space_id: s.id,
     user_id: user_ids.reject { |id| id == s.user_id}.sample,
-    from: Time.now.getutc,
-    to: Time.now.getutc + 1000000
+    from: Time.now.getutc  + 1000000,
+    to: Time.now.getutc + 2000000
   )
 end
 puts "20 spaces created"
