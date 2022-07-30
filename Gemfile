@@ -65,9 +65,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-
 gem 'faker'
-gem "geocoder"
 
 gem "autoprefixer-rails", "10.2.5"
 gem "font-awesome-rails"
@@ -76,3 +74,4 @@ gem "simple_form", github: 'heartcombo/simple_form'
 # Gemfile for Cloudinary
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
+gem "geocoder"

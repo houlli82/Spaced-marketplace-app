@@ -8,6 +8,12 @@ class SpacesController < ApplicationController
     else
       @spaces = Space.all
     end
+    @markers = @spaces.geocoded.map do |space|
+      {
+        lat: space.latitude,
+        lng: space.longitude
+      }
+    end
   end
 
   def show
