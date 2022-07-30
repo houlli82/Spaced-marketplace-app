@@ -56,6 +56,7 @@ puts "making 20 spaces"
   s = Space.create!(
     title: Faker::Space.star_cluster,
     location: Faker::Address.city,
+    address: Faker::Address.city,
     image: placeImage.sample,
     capacity: gen_space_size,
     fee: rand(1..100) * 1000,
@@ -66,8 +67,8 @@ puts "making 20 spaces"
   b = Booking.create!(
     space_id: s.id,
     user_id: user_ids.reject { |id| id == s.user_id}.sample,
-    from: Time.now.getutc,
-    to: Time.now.getutc + 1000000
+    from: Time.now.getutc  + 1000000,
+    to: Time.now.getutc + 2000000
   )
 end
 puts "20 spaces created"
