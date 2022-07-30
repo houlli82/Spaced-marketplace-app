@@ -6,11 +6,12 @@
                       <div class="container mt-4">
                         <%= cl_image_tag(booking.space.photos.first.key, width: 350, height: 200, crop: :fill, :align=> "middle") %>
                       </div>
-                    <p class="card-text">User: <%= booking.user.email %></p>
-                    <p class="card-text">Booked date: </p>
-                    <p><%= booking.from.to_s[0...-13] %>  </p>
-                    <p>        to </p>
-                    <p><%= booking.to.to_s[0...-13] %> </p>
+                    <div class="container mt-2">
+                      <h4 class="card-title"><%= booking.space.title %></h4>
+                      <h5 class="card-text">User: <%= booking.user.email %></h5>
+                      <p class="card-text">Booked date: </p>
+                      <h5>Request from: <%= booking.from.to_s[0...-13] %> until:   <%= booking.to.to_s[0...-13] %> </h5>
+                    </div>
                   </div>
 
               <% if booking.pending? %>
