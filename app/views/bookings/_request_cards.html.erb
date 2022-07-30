@@ -8,10 +8,12 @@
                       </div>
                     <div class="container mt-2">
                       <h3 class="card-title"><%= booking.space.title %></h3>
-                      <h4 class="card-text"> <%= booking.user.email %> </h4>
-                       <h5 class="card-text"> wants to rent your space <%= booking.space.title %> in <%= booking.space.location %></h5>
-                      <p class="card-text">Booked date: </p>
-                      <h5>Request from: <%= booking.from.to_s[0...-13] %> until:   <%= booking.to.to_s[0...-13] %> </h5>
+                      <h3 class="card-text"> <%= booking.user.email %> </h3>
+                      <br>
+                      <h5 class="card-text"> wants to rent your space <%= booking.space.title %> in <%= booking.space.location %></h5>
+                      <br>
+                      <h4>Request from: <%= booking.from.to_s[0...-13] %> until:   <%= booking.to.to_s[0...-13] %> </h4>
+                      <br>
                     </div>
                   </div>
 

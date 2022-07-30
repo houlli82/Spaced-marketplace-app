@@ -43,7 +43,9 @@
                 <p class="card-text"><%= fa_icon "users"%> <%= space.capacity %></p>
                 <p class="card-text"><%= fa_icon "jpy"%> <%= space.fee %></p>
               </div>
-              <%= link_to "See space", space_path(space), class: "btn btn-primary mb-4" %>
+
+                <%= link_to "See space", space_path(space), class: "btn btn-primary mb-4" %>
+
             </div>
           </div>
         <% end %>
