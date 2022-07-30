@@ -91,9 +91,9 @@ ActiveRecord::Schema.define(version: 2022_07_30_035924) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "title"
     t.string "image"
-    t.text "description"
     t.float "latitude"
     t.float "longitude"
+    t.text "description"
     t.string "address"
     t.index ["user_id"], name: "index_spaces_on_user_id"
   end

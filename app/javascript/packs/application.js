@@ -9,14 +9,15 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "controllers"
 import {initializeTabs} from "./tabs"
+document.addEventListener('turbolinks:load', () => {
+  initializeTabs()
+});
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-document.addEventListener('turbolinks:load', () => {
-  initializeTabs()
-});
+
 //= require jquery
 //= require bootstrap
 //= require_tree .
